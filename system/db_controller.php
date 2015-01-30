@@ -7,24 +7,23 @@ connect_db();
 if (!@$db) {
     die('Could not connect: ' . mysql_error());
 }
-$lennud = get_all("SELECT * FROM lennud.broneering");
 
-$lendid = 1;
-$lend = get_all("select * from lend JOIN lennuk ON lennuk_id= lennuk_id where lend_id= $lend_id");
+$lend_id = 1;
+$lennud = get_first("select * from lennud.lend lend JOIN lennud.lennuk lennuk ON lennuk.id= lend.lennuk_id where lend.id=  $lend_id");
 
-$broneeringud = get_all("select * from broneering WHERE lend_id = $lend_id");
-$nr = $lend['kohad_arv'];
-$broneeritud_kohad = array($broneering);
+$broneeringud = get_first("select * from lennud.broneering WHERE lend.id = $lend_id");
+
+$broneeritud_kohad = array();
 foreach ($broneeringud as $broneering) {
-    $broneering["koha_nr"] = $broneeritud_kohad;
-    //ei tea täpset php käsku arraysse liitmiseks
+    array_push($broneeritud_kohad, $broneering['koha_nr']);
 }
 $vabad_kohad = array();
 
+$nr = $lennud["kohtade_arv"];
 for ($x = 0; $x <= $nr; $x++) {
     if (in_array($x, $broneeritud_kohad)) {
     } else {
-        $x->$vabad_kohad;
+        array_push($vabad_kohad, $x);
     }
 }
 

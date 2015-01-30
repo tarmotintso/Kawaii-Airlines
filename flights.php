@@ -26,9 +26,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="clickable active"><a href="index.php">Home</a></li>
+                <li class="clickable"><a href="index.php">Home</a></li>
                 <li class="clickable"><a href="booking.php">Booking</a></li>
-                <li class="clickable"><a href="flights.php">Flights</a></li>
+                <li class="clickable active"><a href="flights.php">Flights</a></li>
                 <li class="clickable"><a href="login.php">Logi sisse</a></li>
                 <li class="clickable"><a href="register.php">Register</a></li>
             </ul>
@@ -46,8 +46,27 @@
 <br>
 
 
-</div>
+<form class="form-horizontal">
+    <table class="table table-bordered">
+        <thead>
+        <tr class="active">
+            <th>Aeg</th>
+            <th>Kohtade Arv</th>
+            <th>Lennu id</th>
+        </tr>
+        </thead>
+        <tbody>
 
+        <tr>
+            <td><?= $lennud["kuup2ev"]; ?></td>
+            <td><?= $lennud["kohtade_arv"]; ?></td>
+            <td><?= $lennud["id"]; ?></td>
+        </tr>
+
+
+        </tbody>
+    </table>
+</form>
 <br>
 <br>
 <!--<a href="javascript: history.back()">Back</a>-->

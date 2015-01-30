@@ -55,7 +55,7 @@ function get_one($sql, $debug = FALSE)
 function get_all($sql)
 {
     global $db;
-    $q = mysqli_query($db, $sql) or db_error_out();
+    $q = mysqli_query($db, $sql);
     while (($result[] = mysqli_fetch_assoc($q)) || array_pop($result)) {
         ;
     }
@@ -65,7 +65,7 @@ function get_all($sql)
 function get_first($sql)
 {
     global $db;
-    $q = mysqli_query($db, $sql) or db_error_out();
+    $q = mysqli_query($db, $sql);
     $first_row = mysqli_fetch_assoc($q);
     return empty($first_row) ? array() : $first_row;
 }

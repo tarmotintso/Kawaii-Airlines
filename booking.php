@@ -28,6 +28,7 @@
             <ul class="nav navbar-nav">
                 <li class="clickable"><a href="index.php">Home</a></li>
                 <li class="clickable active"><a href="booking.php">Booking</a></li>
+                <li class="clickable"><a href="flights.php">Flights</a></li>
                 <li class="clickable"><a href="login.php">Logi sisse</a></li>
                 <li class="clickable"><a href="register.php">Register</a></li>
             </ul>
@@ -50,7 +51,7 @@
         <thead>
         <tr class="active">
             <th>Aeg</th>
-            <th>Koha number</th>
+            <th>Kohtade Arv</th>
             <th>Lennu id</th>
         </tr>
         </thead>
@@ -58,9 +59,9 @@
         <?
         if (!empty($lennud)) foreach ($lennud as $lend):?>
             <tr>
-                <td><?= $lend["aeg"]; ?></td>
-                <td><?= $lend["koht_nr"]; ?></td>
-                <td><?= $lend["lend_id"]; ?></td>
+                <td><?= $lend["kuup2ev"]; ?></td>
+                <td><?= $lend["kohtade_arv"]; ?></td>
+                <td><?= $lend["id"]; ?></td>
             </tr>
         <? endforeach ?>
 
@@ -68,6 +69,7 @@
         </tbody>
     </table>
 </form>
+<?= var_dump($lennud) ?>
 <br>
 <br>
 <!--<a href="javascript: history.back()">Back</a>-->
